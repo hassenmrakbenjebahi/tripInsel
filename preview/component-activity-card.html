@@ -1,0 +1,69 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Components · Activity card" subtitle="Image + bubble rating + book CTA" viewport="700x360" -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: #F2F2F2; width: 700px; box-sizing: border-box; font-family: var(--font-primary); display: flex; gap: 16px; justify-content: center; }
+  .card { width: 300px; background: #fff; border: 1px solid #DDD; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.10); }
+  .card .img { position: relative; height: 180px; background-position: center; background-size: cover; }
+  .card .img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .cat-badge { position:absolute; top:10px; left:10px; background:rgba(255,255,255,0.95); border-radius:9999px; padding:5px 10px; font:700 11px var(--font-primary); text-transform:uppercase; letter-spacing:0.04em; display:inline-flex; align-items:center; gap:6px; }
+  .cat-badge .dot { width: 8px; height: 8px; border-radius: 9999px; }
+  .heart { position:absolute; top:10px; right:10px; width:32px; height:32px; border-radius:9999px; background:rgba(255,255,255,0.95); display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .tc { position:absolute; bottom:10px; left:10px; background:#00AA6C; color:#fff; font:700 10px var(--font-primary); padding:5px 9px; border-radius:9999px; display:inline-flex; align-items:center; gap:5px; text-transform:uppercase; letter-spacing:0.04em; }
+  .body { padding: 14px; }
+  .title { font: 700 16px var(--font-primary); color: #161616; line-height: 1.25; margin: 0 0 6px; }
+  .rating { display:inline-flex; align-items:center; gap:6px; font:400 13px var(--font-primary); color:#555; }
+  .bub { display:inline-flex; gap:2px; }
+  .meta { font: 400 13px var(--font-primary); color: #555; margin-top: 4px; }
+  .footer { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+  .price { font: 800 18px var(--font-primary); color: #161616; }
+  .price small { font: 600 12px var(--font-primary); color: #999; margin-left: 2px; }
+  .book { background:#00AA6C; color:#fff; padding:7px 12px; border-radius:8px; font:700 12px var(--font-primary); border:none; }
+</style></head>
+<body>
+  <div class="card">
+    <div class="img" style="background-image:url(../assets/photo-desert.svg)">
+      <span class="cat-badge"><span class="dot" style="background:#C9853D"></span>Desert</span>
+      <span class="heart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#161616" stroke-width="2.2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg></span>
+      <span class="tc"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="12" cy="8" r="6"/><path d="m15 13 1.5 8.5L12 18l-4.5 3.5L9 13"/></svg>Travelers' Choice</span>
+    </div>
+    <div class="body">
+      <h3 class="title">Sunset camel ride at Ras R'mel</h3>
+      <span class="rating">
+        <span class="bub">
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+        </span>
+        <span style="font-weight:700;color:#161616">4.9</span>
+        <span style="color:#999">(1,234)</span>
+      </span>
+      <div class="meta">Houmt Souk · ⏱ 3 hours</div>
+      <div class="footer"><span class="price">from €45<small>/person</small></span><button class="book">Book</button></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="img" style="background-image:url(../assets/photo-water.svg)">
+      <span class="cat-badge"><span class="dot" style="background:#2E91D6"></span>Water</span>
+      <span class="heart"><svg width="16" height="16" viewBox="0 0 24 24" fill="#00AA6C" stroke="#00AA6C" stroke-width="2.2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg></span>
+    </div>
+    <div class="body">
+      <h3 class="title">Flamingo lagoon boat tour</h3>
+      <span class="rating">
+        <span class="bub">
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><defs><clipPath id="hh"><rect width="9" height="18"/></clipPath></defs><circle cx="9" cy="9" r="8" fill="#fff" stroke="#00AA6C" stroke-width="1.5"/><circle cx="9" cy="9" r="8" fill="#00AA6C" clip-path="url(#hh)"/></svg>
+        </span>
+        <span style="font-weight:700;color:#161616">4.5</span>
+        <span style="color:#999">(842)</span>
+      </span>
+      <div class="meta">Ras R'mel · ⏱ 2 hours</div>
+      <div class="footer"><span class="price">from €38<small>/person</small></span><button class="book">Book</button></div>
+    </div>
+  </div>
+</body></html>

@@ -1,0 +1,301 @@
+/* TripInsel · Tourist — motion layer
+   Loaded after ui-kit.css so it can layer on top of the base styles. */
+
+/* ── Hero background carousel ─────────────────────────────────── */
+.ti-hero-bg {
+  position: absolute; inset: 0; overflow: hidden;
+  background: #0a3b3a; /* deep teal fallback under loading images */
+}
+.ti-hero-bg__img {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: 0; animation: heroFade 21s infinite, heroKenburns 21s infinite;
+  will-change: opacity, transform;
+}
+.ti-hero-bg__img:nth-child(1) { animation-delay: 0s; }
+.ti-hero-bg__img:nth-child(2) { animation-delay: 7s; }
+.ti-hero-bg__img:nth-child(3) { animation-delay: 14s; }
+
+@keyframes heroFade {
+  0%   { opacity: 0; }
+  4%   { opacity: 1; }
+  33%  { opacity: 1; }
+  38%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes heroKenburns {
+  0%   { transform: scale(1.04) translate3d(-0.5%, -0.5%, 0); }
+  38%  { transform: scale(1.12) translate3d( 0.6%,  0.4%, 0); }
+  100% { transform: scale(1.12) translate3d( 0.6%,  0.4%, 0); }
+}
+
+/* Carousel pagination dots */
+.ti-hero-dots {
+  position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%);
+  display: inline-flex; gap: 6px; z-index: 2;
+}
+.ti-hero-dots .dot {
+  width: 24px; height: 3px; border-radius: 9999px;
+  background: rgba(255,255,255,0.30); overflow: hidden;
+  position: relative;
+}
+.ti-hero-dots .dot::after {
+  content: ''; position: absolute; inset: 0;
+  background: #fff; transform: scaleX(0); transform-origin: left;
+  animation: heroDot 21s infinite;
+}
+.ti-hero-dots .dot:nth-child(1)::after { animation-delay: 0s; }
+.ti-hero-dots .dot:nth-child(2)::after { animation-delay: 7s; }
+.ti-hero-dots .dot:nth-child(3)::after { animation-delay: 14s; }
+@keyframes heroDot {
+  0%   { transform: scaleX(0); }
+  4%, 33% { transform: scaleX(1); transition: none; }
+  38%, 100% { transform: scaleX(0); }
+}
+
+/* ── Reveal animations (stagger via --d) ──────────────────────── */
+.ti-reveal {
+  opacity: 0; transform: translateY(14px);
+  animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes revealUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ti-reveal-scale {
+  opacity: 0; transform: scale(0.96);
+  animation: revealScale 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes revealScale {
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ── Hero word-by-word reveal ─────────────────────────────────── */
+.ti-hero-word {
+  display: inline-block; opacity: 0; transform: translateY(20px);
+  animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+
+/* ── Search composer pulse on focus-within ────────────────────── */
+.ti-hero-search {
+  background: #fff; border-radius: 9999px;
+  display: flex; align-items: center; gap: 0;
+  padding: 6px 6px 6px 22px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.30), 0 2px 6px rgba(0,0,0,0.12);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  max-width: 640px;
+}
+.ti-hero-search:focus-within {
+  box-shadow: 0 22px 60px rgba(0,0,0,0.40),
+              0 0 0 6px rgba(0,235,91,0.22),
+              0 0 0 1.5px var(--color-primary);
+}
+.ti-hero-search input {
+  flex: 1; border: none; outline: none; background: transparent;
+  font: 600 16px var(--font-primary); color: #161616;
+  padding: 14px 14px 14px 14px;
+}
+.ti-hero-search input::placeholder { color: #888; font-weight: 500; }
+.ti-hero-search .ti-hero-search-go {
+  background: var(--color-primary); color: #fff;
+  border: none; cursor: pointer;
+  border-radius: 9999px;
+  padding: 0 24px; height: 50px;
+  font: 700 14.5px var(--font-primary);
+  display: inline-flex; align-items: center; gap: 8px;
+  position: relative; overflow: hidden;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.ti-hero-search .ti-hero-search-go:hover {
+  background: var(--color-primary-hover, #008f5b);
+  transform: translateY(-1px);
+}
+.ti-hero-search .ti-hero-search-go::after {
+  content: ''; position: absolute;
+  top: 0; left: -40%; width: 30%; height: 100%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.50) 50%, transparent 100%);
+  transform: skewX(-20deg);
+  animation: shineSweep 4.5s infinite;
+}
+@keyframes shineSweep {
+  0%, 60% { left: -40%; }
+  85%, 100% { left: 140%; }
+}
+
+/* ── Mood chips ──────────────────────────────────────────────── */
+.ti-mood-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 14px; border-radius: 9999px;
+  background: rgba(255,255,255,0.16);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.32);
+  font: 600 13px var(--font-primary); cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.ti-mood-chip:hover {
+  background: rgba(255,255,255,0.28); transform: translateY(-1px);
+}
+.ti-mood-chip.active {
+  background: #fff; color: var(--color-primary);
+  border-color: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.20);
+}
+
+/* ── Live-dot pulse (used on trust pill) ──────────────────────── */
+.ti-live-dot {
+  width: 8px; height: 8px; border-radius: 9999px; background: #00AA6C;
+  position: relative; display: inline-block; flex-shrink: 0;
+}
+.ti-live-dot::after {
+  content: ''; position: absolute; inset: -3px; border-radius: 9999px;
+  background: rgba(0,170,108,0.45);
+  animation: livePulse 1.8s ease-out infinite;
+}
+@keyframes livePulse {
+  0%   { transform: scale(0.5); opacity: 0.9; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* ── Card hover (categories, activities, collections) ─────────── */
+.ti-cat-card {
+  position: relative; overflow: hidden; border: none; cursor: pointer;
+  border-radius: 16px; padding: 0; height: 150px; text-align: left;
+  background-size: cover; background-position: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+.ti-cat-card::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: inherit; background-size: cover; background-position: center;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+}
+.ti-cat-card:hover::before { transform: scale(1.10); }
+.ti-cat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+}
+.ti-cat-card > * { position: relative; z-index: 1; }
+
+.ti-activity-card-img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ti-card:hover .ti-activity-card-img { transform: scale(1.06); }
+
+.ti-collection-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.ti-collection-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.20);
+}
+
+/* ── Heart save: pop ──────────────────────────────────────────── */
+.ti-heart-btn {
+  transition: transform 0.2s cubic-bezier(0.34, 1.6, 0.64, 1), background 0.2s ease;
+}
+.ti-heart-btn:hover { transform: scale(1.08); background: #fff; }
+.ti-heart-btn.saved { animation: heartPop 0.4s cubic-bezier(0.34, 1.6, 0.64, 1); }
+@keyframes heartPop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+/* ── Language switcher ───────────────────────────────────────── */
+.ti-lang {
+  position: relative;
+}
+.ti-lang-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--color-bg-subtle, #FAFAFA);
+  border: 1px solid var(--color-border);
+  border-radius: 9999px; padding: 7px 12px 7px 10px;
+  font: 600 13px var(--font-primary); color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+.ti-lang-btn:hover { background: #fff; border-color: var(--color-border-strong); }
+.ti-lang-btn .flag { font-size: 16px; line-height: 1; }
+.ti-lang-btn svg { transition: transform 0.2s ease; }
+.ti-lang.open .ti-lang-btn svg { transform: rotate(180deg); }
+.ti-lang-menu {
+  position: absolute; right: 0; top: calc(100% + 8px);
+  background: #fff; border: 1px solid var(--color-border);
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.16);
+  padding: 10px;
+  min-width: 260px; z-index: 60;
+  opacity: 0; transform: translateY(-6px) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.ti-lang.open .ti-lang-menu {
+  opacity: 1; transform: translateY(0) scale(1); pointer-events: auto;
+}
+.ti-lang-menu .head {
+  font: 700 11px var(--font-primary);
+  color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 4px 10px 8px;
+}
+.ti-lang-menu .opt {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 10px; border-radius: 8px; cursor: pointer;
+  font: 500 13.5px var(--font-primary); color: var(--color-text-primary);
+}
+.ti-lang-menu .opt:hover { background: var(--color-bg-hover, #F2F2F2); }
+.ti-lang-menu .opt.active {
+  background: var(--color-primary-light); color: #00703A;
+  font-weight: 700;
+}
+.ti-lang-menu .opt .flag { font-size: 18px; line-height: 1; width: 22px; }
+.ti-lang-menu .opt .native {
+  margin-left: auto; font: 500 12px var(--font-primary); color: var(--color-text-muted);
+}
+.ti-lang-menu .opt.active .native { color: #00703A; }
+.ti-lang-menu .ftr {
+  border-top: 1px solid var(--color-border); margin-top: 6px; padding: 10px 10px 4px;
+  font: 500 11.5px var(--font-primary); color: var(--color-text-muted);
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* ── About section animations ─────────────────────────────────── */
+.ti-about-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.ti-about-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Counting number — subtle fade-up of the digit */
+.ti-stat-num {
+  font: 800 38px/1 var(--font-primary);
+  letter-spacing: -0.02em; color: var(--color-primary);
+  background: linear-gradient(135deg, #00AA6C 0%, #00CC7A 50%, #00eb5b 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Confirmation checkmark pop (already used) ─────────────────── */
+.ti-confirm-icon { animation: confirmPop 0.7s cubic-bezier(0.34, 1.6, 0.64, 1); }
+@keyframes confirmPop {
+  0%   { transform: scale(0); opacity: 0; }
+  60%  { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  .ti-hero-bg__img,
+  .ti-reveal, .ti-reveal-scale, .ti-hero-word {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

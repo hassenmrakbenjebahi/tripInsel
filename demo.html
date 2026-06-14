@@ -1,0 +1,379 @@
+<!doctype html>
+<!-- @dsCard group="Brand" name="Demo" -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TripInsel Design System — Live Demo</title>
+  <meta name="theme-color" content="#00eb5b">
+  <link rel="stylesheet" href="colors_and_type.css">
+  <style>
+    body { margin: 0; background: #FFFFFF; font-family: var(--font-primary); color: var(--color-text-primary); }
+
+    /* ─── Hero ───────────────────────────────────────────────────── */
+    .hero {
+      position: relative; min-height: 380px;
+      background: url(https://images.unsplash.com/photo-1627298628183-ab85392ea27b?w=2000&q=80&fit=crop&auto=format) center / cover;
+      display: flex; align-items: flex-end; padding: 32px 48px 36px;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.10) 0%, rgba(0,0,0,0.60) 100%);
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 1080px; color: #fff; }
+    .hero .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font: 700 11px var(--font-primary); text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 6px 12px; border-radius: 9999px;
+      background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(4px); margin-bottom: 18px;
+    }
+    .hero h1 {
+      font: 800 56px/1.05 var(--font-primary); letter-spacing: -0.025em;
+      margin: 0 0 12px; color: #fff;
+    }
+    .hero p {
+      font: 400 17px/1.5 var(--font-primary); color: rgba(255,255,255,0.92);
+      margin: 0; max-width: 640px;
+    }
+    .topnav {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 2;
+      display: flex; align-items: center; gap: 14px;
+      padding: 18px 48px; color: #fff;
+    }
+    .topnav .logo { font: 800 22px var(--font-primary); letter-spacing: -0.02em; }
+    .topnav .spacer { flex: 1; }
+    .topnav a {
+      color: rgba(255,255,255,0.92); text-decoration: none;
+      font: 600 13px var(--font-primary); padding: 6px 10px; border-radius: 8px;
+    }
+    .topnav a:hover { background: rgba(255,255,255,0.15); }
+
+    /* ─── Sections ───────────────────────────────────────────────── */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+    section { padding: 48px 0; }
+    .section-head {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 24px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .section-head h2 {
+      font: 800 28px var(--font-primary); letter-spacing: -0.02em; margin: 0;
+    }
+    .section-head p {
+      font: 400 14px var(--font-primary); color: var(--color-text-secondary);
+      margin: 4px 0 0; max-width: 520px;
+    }
+    .eyebrow-sm {
+      font: 700 11px var(--font-primary); text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--color-primary); margin-bottom: 4px; display: block;
+    }
+
+    /* ─── UI kit cards ───────────────────────────────────────────── */
+    .kits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    @media (max-width: 920px) { .kits { grid-template-columns: 1fr; } }
+
+    .kit {
+      display: block; text-decoration: none; color: inherit;
+      background: #fff; border: 1px solid var(--color-border); border-radius: 16px;
+      overflow: hidden; box-shadow: var(--shadow-card);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+    .kit:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.14); transform: translateY(-2px); }
+
+    .kit-thumb {
+      aspect-ratio: 16/10; position: relative; overflow: hidden;
+      background: var(--color-bg-subtle);
+    }
+    .kit-thumb iframe {
+      position: absolute; top: 0; left: 0;
+      width: 1280px; height: 800px;
+      border: 0; transform: scale(0.42); transform-origin: top left;
+      pointer-events: none;
+    }
+    .kit-thumb::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(255,255,255,0.0) 100%);
+    }
+
+    .kit-body { padding: 18px 20px 20px; }
+    .kit-body .name {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; margin-bottom: 4px;
+    }
+    .kit-body h3 { font: 800 19px var(--font-primary); margin: 0; letter-spacing: -0.015em; }
+    .kit-body .role-chip {
+      font: 700 10px var(--font-primary); text-transform: uppercase; letter-spacing: 0.06em;
+      padding: 3px 8px; border-radius: 9999px; background: var(--color-primary-light); color: #00703A;
+    }
+    .kit-body p {
+      font: 400 13px/1.5 var(--font-primary); color: var(--color-text-secondary);
+      margin: 0 0 14px;
+    }
+    .kit-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      font: 700 13px var(--font-primary); color: var(--color-primary);
+    }
+    .kit-cta::after { content: '→'; transition: transform 0.15s ease; }
+    .kit:hover .kit-cta::after { transform: translateX(3px); }
+
+    /* ─── Flow guide ─────────────────────────────────────────────── */
+    .flow {
+      background: var(--color-primary-light); border-radius: 16px;
+      padding: 28px 32px; display: grid;
+      grid-template-columns: 1fr 1fr 1fr; gap: 24px;
+    }
+    @media (max-width: 920px) { .flow { grid-template-columns: 1fr; } }
+    .flow-step .num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 9999px;
+      background: var(--color-primary); color: #fff;
+      font: 800 13px var(--font-primary);
+      margin-bottom: 10px;
+    }
+    .flow-step h4 { font: 700 15px var(--font-primary); margin: 0 0 4px; color: #161616; }
+    .flow-step p {
+      font: 400 13px/1.5 var(--font-primary); color: #2b4a3b;
+      margin: 0;
+    }
+    .flow-step code {
+      font: 600 12px monospace; background: rgba(0,170,108,0.12);
+      padding: 1px 6px; border-radius: 4px; color: #00703A;
+    }
+
+    /* ─── Tokens at a glance ──────────────────────────────────────── */
+    .tokens { display: grid; grid-template-columns: 1.2fr 1fr; gap: 18px; }
+    @media (max-width: 920px) { .tokens { grid-template-columns: 1fr; } }
+
+    .panel {
+      background: #fff; border: 1px solid var(--color-border); border-radius: 16px;
+      padding: 22px 24px;
+    }
+    .panel .label {
+      font: 700 11px var(--font-primary); text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--color-text-muted); margin-bottom: 14px;
+    }
+
+    .palette { display: flex; gap: 10px; flex-wrap: wrap; }
+    .swatch {
+      flex: 1; min-width: 110px; border-radius: 12px; padding: 14px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      min-height: 110px;
+    }
+    .swatch .nm { font: 800 13px var(--font-primary); }
+    .swatch .hx { font: 600 10px var(--font-primary); opacity: 0.85; letter-spacing: 0.04em; text-transform: uppercase; }
+
+    .type-stack { display: flex; flex-direction: column; gap: 10px; }
+    .type-row {
+      display: flex; align-items: baseline; gap: 14px;
+      padding-bottom: 8px; border-bottom: 1px dashed #f0f0f0;
+    }
+    .type-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .type-row .t { font-family: var(--font-primary); color: #161616; }
+    .type-row .spec {
+      margin-left: auto; font: 600 10px monospace; color: #999;
+      letter-spacing: 0.02em; text-transform: uppercase; flex-shrink: 0;
+    }
+
+    /* ─── Tabs / docs row ─────────────────────────────────────────── */
+    .doc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    @media (max-width: 920px) { .doc-row { grid-template-columns: 1fr; } }
+    .doc {
+      display: block; text-decoration: none; color: inherit;
+      background: #fff; border: 1px solid var(--color-border); border-radius: 12px;
+      padding: 18px 20px; transition: box-shadow 0.2s ease;
+    }
+    .doc:hover { box-shadow: var(--shadow-card-hover); }
+    .doc .icn {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--color-primary-light); color: var(--color-primary);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 12px;
+    }
+    .doc h4 { font: 700 15px var(--font-primary); margin: 0 0 4px; }
+    .doc p { font: 400 13px/1.5 var(--font-primary); color: var(--color-text-secondary); margin: 0; }
+
+    /* ─── Footer ─────────────────────────────────────────────────── */
+    footer {
+      background: #161616; color: #fff; padding: 32px 48px;
+      font: 400 13px var(--font-primary);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+    }
+    footer .left { display: flex; align-items: center; gap: 12px; }
+    footer .wm { font: 800 20px var(--font-primary); letter-spacing: -0.02em; }
+    footer a { color: #bbb; text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    /* ─── tiny “demo” pulse on hero ─────────────────────────────── */
+    @keyframes pulse-dot { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: 0.6; } }
+    .live-dot {
+      width: 8px; height: 8px; border-radius: 9999px; background: #34E0A1;
+      box-shadow: 0 0 0 0 rgba(52,224,161,0.5);
+      animation: pulse-dot 1.6s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HERO ─────────────────────────────────────────────────── -->
+  <div class="hero">
+    <nav class="topnav">
+      <span class="logo">TripInsel</span>
+      <span class="spacer"></span>
+      <a href="#kits">UI kits</a>
+      <a href="#tokens">Tokens</a>
+      <a href="#docs">Docs</a>
+      <a href="src/pages/tourist/index.html">Launch demo →</a>
+    </nav>
+    <div class="hero-inner">
+      <span class="eyebrow"><span class="live-dot"></span>Live demo · Design system v1.0</span>
+      <h1>TripInsel</h1>
+      <p>The TripAdvisor-faithful design system for Djerba's activity marketplace. Three working UI kits, full token system, ready to ship.</p>
+    </div>
+  </div>
+
+  <!-- ─── UI KITS ────────────────────────────────────────────────── -->
+  <section id="kits">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow-sm">Three products · one system</span>
+          <h2>Click any card to launch the live prototype</h2>
+          <p>All three kits are fully click-through — navigate, switch tabs, change filters, walk through a booking. No backend, just real interactions.</p>
+        </div>
+      </div>
+
+      <div class="kits">
+        <a class="kit" href="src/pages/tourist/index.html">
+          <div class="kit-thumb"><iframe src="src/pages/tourist/index.html" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="kit-body">
+            <div class="name"><h3>Tourist marketplace</h3><span class="role-chip">Tourist</span></div>
+            <p>Public homepage with rotating cover, search, activity detail with sticky booking widget, booking confirmation, and the signed-in "My bookings" screen.</p>
+            <span class="kit-cta">Launch tourist demo</span>
+          </div>
+        </a>
+
+        <a class="kit" href="src/pages/provider/index.html">
+          <div class="kit-thumb"><iframe src="src/pages/provider/index.html" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="kit-body">
+            <div class="name"><h3>Local host portal</h3><span class="role-chip">Local host</span></div>
+            <p>Overview stats, activity management with active/inactive toggles, bookings queue with inline confirm/decline, wallet, reviews.</p>
+            <span class="kit-cta">Launch local host demo</span>
+          </div>
+        </a>
+
+        <a class="kit" href="src/pages/admin/index.html">
+          <div class="kit-thumb"><iframe src="src/pages/admin/index.html" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+          <div class="kit-body">
+            <div class="name"><h3>Admin panel</h3><span class="role-chip">Admin</span></div>
+            <p>Platform-wide stats, provider verifications queue with approve/reject, providers directory, transactions ledger, categories.</p>
+            <span class="kit-cta">Launch admin demo</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DEMO FLOW ─────────────────────────────────────────────── -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="flow">
+        <div class="flow-step">
+          <span class="num">1</span>
+          <h4>Browse as a tourist</h4>
+          <p>Open <code>Tourist</code>. Click a category, then a card, then <strong>Check availability</strong> → <strong>You're all set!</strong>.</p>
+        </div>
+        <div class="flow-step">
+          <span class="num">2</span>
+          <h4>Run the business</h4>
+          <p>Open <code>Local host</code>. Toggle an activity off; click <strong>Bookings</strong> → confirm a pending one.</p>
+        </div>
+        <div class="flow-step">
+          <span class="num">3</span>
+          <h4>Approve a provider</h4>
+          <p>Open <code>Admin</code>. Click <strong>Verifications</strong> (badge of 7) → <strong>Approve</strong> the dive center.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TOKENS ─────────────────────────────────────────────────── -->
+  <section id="tokens" style="background: var(--color-bg-subtle); margin: 0 -48px; padding-left: 48px; padding-right: 48px;">
+    <div class="container" style="padding-left: 0; padding-right: 0;">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow-sm">Foundations</span>
+          <h2>Tokens at a glance</h2>
+          <p>The full set lives in <code style="font: 600 12px monospace; background: #fff; padding: 1px 6px; border-radius: 4px;">colors_and_type.css</code>. Open the Design System tab for individual spec cards.</p>
+        </div>
+      </div>
+
+      <div class="tokens">
+        <div class="panel">
+          <div class="label">Primary palette</div>
+          <div class="palette">
+            <div class="swatch" style="background:#00AA6C;color:#fff"><div class="nm">Primary</div><div class="hx">#00AA6C</div></div>
+            <div class="swatch" style="background:#007A4D;color:#fff"><div class="nm">Hover</div><div class="hx">#007A4D</div></div>
+            <div class="swatch" style="background:#E6F7F1;color:#00703A"><div class="nm">Light</div><div class="hx">#E6F7F1</div></div>
+            <div class="swatch" style="background:#34E0A1;color:#003B23"><div class="nm">Bright</div><div class="hx">#34E0A1</div></div>
+            <div class="swatch" style="background:#161616;color:#fff"><div class="nm">Text</div><div class="hx">#161616</div></div>
+            <div class="swatch" style="background:#F2F2F2;color:#161616"><div class="nm">Subtle</div><div class="hx">#F2F2F2</div></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="label">Mulish type ladder</div>
+          <div class="type-stack">
+            <div class="type-row"><span class="t" style="font: 800 28px var(--font-primary); letter-spacing:-0.02em">Where to?</span><span class="spec">800 · hero</span></div>
+            <div class="type-row"><span class="t" style="font: 700 20px var(--font-primary)">Travelers' Choice</span><span class="spec">700 · h2</span></div>
+            <div class="type-row"><span class="t" style="font: 700 16px var(--font-primary)">Sunset camel ride</span><span class="spec">700 · card</span></div>
+            <div class="type-row"><span class="t" style="font: 400 14px var(--font-primary); color:#555">Houmt Souk · 3 hours</span><span class="spec">400 · meta</span></div>
+            <div class="type-row"><span class="t" style="font: 800 22px var(--font-primary)">€ 1,240.50</span><span class="spec">800 · price</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DOCS ──────────────────────────────────────────────────── -->
+  <section id="docs">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow-sm">Reference</span>
+          <h2>Where everything lives</h2>
+        </div>
+      </div>
+      <div class="doc-row">
+        <a class="doc" href="README.md">
+          <div class="icn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <h4>README.md</h4>
+          <p>Product context, content fundamentals, full visual foundations, iconography, file index, and caveats.</p>
+        </a>
+        <a class="doc" href="colors_and_type.css">
+          <div class="icn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h4>colors_and_type.css</h4>
+          <p>Every token: 4 brand colors, status, categories, type scale, spacing, radii, shadows, motion. Drop into any project.</p>
+        </a>
+        <a class="doc" href="uploads/TripInsel_DesignSystem.pdf">
+          <div class="icn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="m15 13 1.5 8.5L12 18l-4.5 3.5L9 13"/></svg></div>
+          <h4>Source brief (PDF)</h4>
+          <p>The 25-page authoritative TripInsel v3.0 spec — the source of truth this system was built from.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="left">
+      <span class="wm" style="color:var(--color-primary-bright)">TripInsel</span>
+      <span>Design system · v1.0 · Built for Djerba</span>
+    </div>
+    <div>
+      <a href="src/pages/tourist/index.html">Tourist</a> ·
+      <a href="src/pages/provider/index.html">Provider</a> ·
+      <a href="src/pages/admin/index.html">Admin</a>
+    </div>
+  </footer>
+</body>
+</html>

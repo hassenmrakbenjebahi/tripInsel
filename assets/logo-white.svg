@@ -1,0 +1,9 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" width="360" height="80">
+  
+  <g transform="translate(8, 22)">
+    <circle cx="18" cy="18" r="16" fill="#FFFFFF"></circle>
+    <circle cx="30" cy="10" r="6" fill="#34E0A1"></circle>
+  </g>
+  <text x="62" y="54" class="word">TripInsel</text>
+</svg>

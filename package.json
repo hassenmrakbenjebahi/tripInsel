@@ -1,0 +1,13 @@
+{
+  "name": "tripinsel-design",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TripInsel design system + interactive HTML/React prototypes (Djerba activity marketplace).",
+  "scripts": {
+    "start": "serve -l 3000 .",
+    "dev": "serve -l 3000 ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}

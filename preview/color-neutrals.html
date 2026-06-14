@@ -1,0 +1,29 @@
+<!doctype html>
+<!-- @dsCard group="Colors" name="Colors · Neutrals" subtitle="Text + background + border tokens" viewport="700x280" -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: #fff; width: 700px; box-sizing: border-box; font-family: var(--font-primary); }
+  h4 { margin: 0 0 8px; font: 700 11px var(--font-primary); text-transform: uppercase; letter-spacing: 0.05em; color: #999; }
+  .row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 16px; }
+  .sw { border-radius: 8px; padding: 10px 12px; min-height: 84px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #DDD; }
+  .sw .name { font: 700 12px/1.2 var(--font-primary); }
+  .sw .hex { font: 600 10px/1 var(--font-primary); letter-spacing: 0.04em; opacity: 0.85; text-transform: uppercase; }
+</style></head>
+<body>
+  <h4>Text</h4>
+  <div class="row">
+    <div class="sw" style="background:#161616;color:#fff;border-color:transparent"><div class="name">Primary</div><div class="hex">#161616</div></div>
+    <div class="sw" style="background:#555;color:#fff;border-color:transparent"><div class="name">Secondary</div><div class="hex">#555555</div></div>
+    <div class="sw" style="background:#999;color:#fff;border-color:transparent"><div class="name">Muted</div><div class="hex">#999999</div></div>
+    <div class="sw" style="background:#00AA6C;color:#fff;border-color:transparent"><div class="name">Link</div><div class="hex">#00AA6C</div></div>
+    <div class="sw" style="background:#fff;color:#161616"><div class="name">Inverse</div><div class="hex">#FFFFFF</div></div>
+  </div>
+  <h4>Backgrounds</h4>
+  <div class="row">
+    <div class="sw" style="background:#FFFFFF;color:#161616"><div class="name">Base</div><div class="hex">#FFFFFF</div></div>
+    <div class="sw" style="background:#F2F2F2;color:#161616"><div class="name">Subtle</div><div class="hex">#F2F2F2</div></div>
+    <div class="sw" style="background:#E8E8E8;color:#161616"><div class="name">Hover</div><div class="hex">#E8E8E8</div></div>
+    <div class="sw" style="background:#161616;color:#fff;border-color:transparent"><div class="name">Dark</div><div class="hex">#161616</div></div>
+    <div class="sw" style="background:#DDD;color:#161616"><div class="name">Border</div><div class="hex">#DDDDDD</div></div>
+  </div>
+</body></html>

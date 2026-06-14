@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Components · Form inputs" subtitle="Pill search + standard + focus + error" viewport="700x280" -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: #fff; width: 700px; box-sizing: border-box; font-family: var(--font-primary); }
+  .stack { display: flex; flex-direction: column; gap: 14px; }
+  .label { font: 700 11px var(--font-primary); color: #161616; text-transform: none; letter-spacing: 0; margin-bottom: 4px; display: block; }
+  .input { width: 100%; box-sizing: border-box; border: 1px solid #DDD; border-radius: 8px; padding: 10px 14px; font: 400 14px var(--font-primary); color: #161616; background: #fff; outline: none; }
+  .input::placeholder { color: #999; }
+  .input:focus, .input.focus { border-color: #C0C0C0; box-shadow: 0 0 0 2px rgba(0,170,108,0.25); }
+  .input.error { border-color: #D93025; box-shadow: 0 0 0 2px rgba(217,48,37,0.18); }
+  .err { font: 400 11px var(--font-primary); color: #A30000; margin-top: 4px; }
+  .pill-search { border: 1px solid #DDD; border-radius: 9999px; padding: 12px 18px 12px 46px; background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2'><circle cx='11' cy='11' r='7'/><path d='m21 21-4.3-4.3'/></svg>") no-repeat 16px center / 18px 18px; font: 400 14px var(--font-primary); width: 100%; box-sizing: border-box; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+</style></head>
+<body>
+  <div class="stack">
+    <input class="pill-search" placeholder="Search activities, tours, experiences in Djerba…" />
+    <div class="row">
+      <div>
+        <label class="label">Email</label>
+        <input class="input" placeholder="you@example.com" />
+      </div>
+      <div>
+        <label class="label">Date</label>
+        <input class="input focus" value="Tue, Jun 17 2025" />
+      </div>
+    </div>
+    <div>
+      <label class="label">Phone</label>
+      <input class="input error" value="+216 0" />
+      <div class="err">Phone number looks incomplete.</div>
+    </div>
+  </div>
+</body></html>

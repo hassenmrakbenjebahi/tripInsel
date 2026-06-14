@@ -1,0 +1,75 @@
+/* TripInsel UI Kit — shared utility layer
+   Used by ui_kits/tourist, ui_kits/provider, ui_kits/admin */
+
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-primary);
+  background: var(--color-bg-base);
+  color: var(--color-text-primary);
+}
+
+button { font-family: inherit; }
+
+/* ── Buttons ──────────────────────────────────────────────────────── */
+.ti-btn { font: 700 14px var(--font-primary); border-radius: 8px; padding: 10px 20px; border: none; cursor: pointer; transition: background 0.15s ease; display: inline-flex; align-items: center; gap: 8px; }
+.ti-btn-primary { background: var(--color-primary); color: #fff; }
+.ti-btn-primary:hover { background: var(--color-primary-hover); }
+.ti-btn-secondary { background: transparent; color: var(--color-primary); border: 1px solid var(--color-primary); padding: 9px 19px; }
+.ti-btn-secondary:hover { background: var(--color-primary-light); }
+.ti-btn-ghost { background: transparent; color: var(--color-text-primary); padding: 8px 12px; font-weight: 600; }
+.ti-btn-ghost:hover { background: var(--color-bg-hover); }
+.ti-btn-sm { font-size: 12px; padding: 6px 12px; }
+.ti-btn-lg { font-size: 16px; padding: 14px 28px; }
+.ti-btn-block { width: 100%; justify-content: center; }
+
+/* ── Card ──────────────────────────────────────────────────────────── */
+.ti-card { background: #fff; border: 1px solid var(--color-border); border-radius: 12px; box-shadow: var(--shadow-card); transition: box-shadow 0.2s ease; }
+.ti-card:hover { box-shadow: var(--shadow-card-hover); }
+
+/* ── Form inputs ─────────────────────────────────────────────────── */
+.ti-input { width: 100%; border: 1px solid var(--color-border); border-radius: 8px; padding: 10px 14px; font: 400 14px var(--font-primary); color: var(--color-text-primary); background: #fff; outline: none; }
+.ti-input::placeholder { color: var(--color-text-muted); }
+.ti-input:focus { border-color: var(--color-border-strong); box-shadow: 0 0 0 2px rgba(0,170,108,0.25); }
+
+.ti-pill-search { border: 1px solid var(--color-border); border-radius: 9999px; padding: 12px 18px 12px 46px; background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='7'/><path d='m21 21-4.3-4.3'/></svg>") no-repeat 16px center / 18px 18px; font: 400 14px var(--font-primary); width: 100%; outline: none; }
+.ti-pill-search:focus { border-color: var(--color-border-strong); box-shadow: 0 0 0 2px rgba(0,170,108,0.25); }
+
+/* ── Chips ─────────────────────────────────────────────────────────── */
+.ti-chip { font: 600 13px var(--font-primary); padding: 8px 16px; border: 1px solid var(--color-border); border-radius: 9999px; background: #fff; color: var(--color-text-primary); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; user-select: none; white-space: nowrap; }
+.ti-chip:hover { background: var(--color-bg-hover); }
+.ti-chip.active { background: var(--color-primary-light); border-color: var(--color-primary); color: #00703A; }
+
+/* ── Status badge ─────────────────────────────────────────────────── */
+.ti-badge { font: 700 11px var(--font-primary); padding: 3px 10px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; }
+.ti-badge-confirmed { background: #D4F5E9; color: #00703A; }
+.ti-badge-pending { background: #FEF3C7; color: #8A6000; }
+.ti-badge-cancelled { background: #FDE8E8; color: #A30000; }
+.ti-badge-completed { background: #F2F2F2; color: #555; }
+.ti-badge-active { background: #D4F5E9; color: #00703A; }
+.ti-badge-inactive { background: #F2F2F2; color: #555; }
+
+/* ── Layout ───────────────────────────────────────────────────────── */
+.ti-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.ti-grid-activities { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+@media (max-width: 1024px) { .ti-grid-activities { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .ti-grid-activities { grid-template-columns: 1fr; } }
+
+/* ── Page bg variants ─────────────────────────────────────────────── */
+.ti-page-tourist { background: #fff; min-height: 100vh; }
+.ti-page-dashboard { background: #F2F2F2; min-height: 100vh; }
+
+/* ── Misc helpers ─────────────────────────────────────────────────── */
+.ti-divider { height: 1px; background: var(--color-border); border: 0; margin: 24px 0; }
+.ti-muted { color: var(--color-text-muted); }
+.ti-secondary { color: var(--color-text-secondary); }
+
+/* Avatar */
+.ti-avatar { width: 36px; height: 36px; border-radius: 9999px; background: var(--color-bg-subtle); display: inline-flex; align-items: center; justify-content: center; font: 700 14px var(--font-primary); color: var(--color-text-secondary); }
+
+/* Page fade-in */
+@keyframes ti-fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.ti-page-content { animation: ti-fadeIn 0.3s ease; }
+
+@keyframes ti-checkIn { 0% { transform: scale(0); opacity: 0; } 60% { transform: scale(1.1); } 100% { transform: scale(1); opacity: 1; } }
+.ti-confirm-icon { animation: ti-checkIn 0.4s ease forwards; }

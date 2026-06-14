@@ -1,0 +1,68 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Components · Search result row" subtitle="Rank + thumb + meta + book — list view" viewport="700x320" -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: #fff; width: 700px; box-sizing: border-box; font-family: var(--font-primary); }
+  .row { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #DDD; }
+  .row:last-child { border-bottom: 0; }
+  .rank { font: 800 18px var(--font-primary); color: #161616; width: 22px; flex-shrink: 0; padding-top: 4px; }
+  .thumb { width: 140px; height: 100px; border-radius: 8px; flex-shrink: 0; background-position: center; background-size: cover; }
+  .body { flex: 1; min-width: 0; }
+  .title { font: 700 16px var(--font-primary); color: #161616; margin: 0 0 4px; }
+  .rating { display:inline-flex; align-items:center; gap:6px; font:400 13px var(--font-primary); color:#555; margin-bottom: 4px; }
+  .bub { display:inline-flex; gap:2px; }
+  .meta { font: 400 13px var(--font-primary); color: #555; }
+  .desc { font: 400 13px var(--font-primary); color: #555; margin: 6px 0 8px; line-height: 1.4; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .footer { display: flex; align-items: center; justify-content: space-between; }
+  .trust { font: 400 12px var(--font-primary); color: #00703A; display: inline-flex; align-items: center; gap: 4px; }
+  .price { font: 800 16px var(--font-primary); color: #161616; }
+  .book { background:#00AA6C; color:#fff; padding:7px 14px; border-radius:8px; font:700 12px var(--font-primary); border:none; margin-left: 12px; }
+</style></head>
+<body>
+  <div class="row">
+    <span class="rank">1.</span>
+    <div class="thumb" style="background-image:url(../assets/photo-desert.svg)"></div>
+    <div class="body">
+      <h3 class="title">Sunset camel ride at Ras R'mel</h3>
+      <span class="rating">
+        <span class="bub">
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+        </span>
+        <span style="font-weight:700;color:#161616">4.9</span><span style="color:#999">· (1,234 reviews)</span>
+      </span>
+      <div class="meta">Desert safari · 3 hours · Houmt Souk</div>
+      <p class="desc">Ride along the lagoon at golden hour with a local guide. Includes hotel pickup, mint tea, and time at the sandbar.</p>
+      <div class="footer">
+        <span class="trust"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00703A" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Free cancellation · from <span class="price">€45</span></span>
+        <button class="book">Book</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <span class="rank">2.</span>
+    <div class="thumb" style="background-image:url(../assets/photo-water.svg)"></div>
+    <div class="body">
+      <h3 class="title">Flamingo lagoon boat tour</h3>
+      <span class="rating">
+        <span class="bub">
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#00AA6C"/></svg>
+          <svg width="13" height="13" viewBox="0 0 18 18"><circle cx="9" cy="9" r="8" fill="#fff" stroke="#00AA6C" stroke-width="1.5"/></svg>
+        </span>
+        <span style="font-weight:700;color:#161616">4.5</span><span style="color:#999">· (842 reviews)</span>
+      </span>
+      <div class="meta">Water sports · 2 hours · Ras R'mel</div>
+      <p class="desc">Spot flamingos on the lagoon by traditional wooden boat. Snorkel gear included for the open-water stop.</p>
+      <div class="footer">
+        <span class="trust"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00703A" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Free cancellation · from <span class="price">€38</span></span>
+        <button class="book">Book</button>
+      </div>
+    </div>
+  </div>
+</body></html>

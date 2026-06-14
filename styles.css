@@ -1,0 +1,8 @@
+/* ===================================================================
+   TripInsel Design System — styles.css
+   Single entry point. Consuming projects link THIS file only; it pulls
+   in the design tokens + shared UI utility layer.
+   =================================================================== */
+
+@import "./colors_and_type.css";   /* color, type, spacing, radius, shadow, motion tokens */
+@import "./src/styles/ui-kit.css";    /* shared .ti-* utility layer (buttons, cards, inputs) */

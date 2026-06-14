@@ -1,0 +1,47 @@
+<!doctype html>
+<!-- @dsCard group="Components" name="Components · Booking widget" subtitle="Sticky right-rail — 360 × 480" viewport="700x520" -->
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: #F2F2F2; width: 700px; box-sizing: border-box; font-family: var(--font-primary); }
+  .widget { width: 360px; background: #fff; border: 1px solid #DDD; border-radius: 16px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.12); margin: 0 auto; }
+  .price-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 14px; }
+  .price-row .amount { font: 800 24px var(--font-primary); color: #161616; }
+  .price-row .label { font: 400 13px var(--font-primary); color: #555; }
+  .field-label { font: 700 11px var(--font-primary); color: #999; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 6px; }
+  .date-input { width: 100%; border: 1px solid #DDD; border-radius: 8px; padding: 10px 12px; font: 600 14px var(--font-primary); color: #161616; display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .times { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+  .time { font: 600 12px var(--font-primary); padding: 6px 12px; border: 1px solid #DDD; border-radius: 9999px; background: #fff; color: #161616; cursor: pointer; }
+  .time.sel { background: #00AA6C; color: #fff; border-color: #00AA6C; }
+  .counter { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #F2F2F2; }
+  .counter .ctrl { display: flex; align-items: center; gap: 10px; }
+  .counter .btn { width: 28px; height: 28px; border-radius: 9999px; border: 1px solid #DDD; background: #fff; color: #161616; cursor: pointer; font: 700 16px var(--font-primary); }
+  .total { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0 14px; font: 700 15px var(--font-primary); }
+  .total .v { font: 800 18px var(--font-primary); color: #161616; }
+  .cta { width: 100%; background: #00AA6C; color: #fff; padding: 12px; border-radius: 8px; font: 700 15px var(--font-primary); border: none; cursor: pointer; }
+  .trust-row { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 12px; font: 400 11px var(--font-primary); color: #555; }
+  .trust-row > span { display: inline-flex; align-items: center; gap: 4px; }
+</style></head>
+<body>
+  <div class="widget">
+    <div class="price-row"><span class="amount">from €45</span><span class="label">per person</span></div>
+    <div class="field-label">Date</div>
+    <div class="date-input"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Tue, Jun 17 2025</div>
+    <div class="field-label">Time</div>
+    <div class="times">
+      <span class="time">08:00</span>
+      <span class="time">10:00</span>
+      <span class="time sel">14:00</span>
+      <span class="time">16:30</span>
+    </div>
+    <div class="field-label">Participants</div>
+    <div class="counter"><span style="font:600 14px var(--font-primary);color:#161616">Adults</span><div class="ctrl"><button class="btn">−</button><span>2</span><button class="btn">+</button></div></div>
+    <div class="counter"><span style="font:600 14px var(--font-primary);color:#161616">Children</span><div class="ctrl"><button class="btn">−</button><span>0</span><button class="btn">+</button></div></div>
+    <div class="total"><span>Total</span><span class="v">€90.00</span></div>
+    <button class="cta">Check availability</button>
+    <div class="trust-row">
+      <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Secure</span>
+      <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#00703A" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Free cancellation</span>
+      <span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>Instant confirm</span>
+    </div>
+  </div>
+</body></html>
